@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop the Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Stop the Timer</h1>
+            <p>Can you stop it exactly on time?</p>
+        </header>
+
+        <main>
+            <div class="settings">
+                <label for="target-time">Target Time:</label>
+                <select id="target-time">
+                    <option value="5">5.00 Seconds</option>
+                    <option value="10" selected>10.00 Seconds</option>
+                    <option value="15">15.00 Seconds</option>
+                </select>
+            </div>
+
+            <div class="timer-display">
+                <span id="time">0.000</span><span class="unit">s</span>
+            </div>
+
+            <div class="controls">
+                <button id="start-btn" class="btn primary">Start</button>
+                <button id="stop-btn" class="btn danger" disabled>Stop</button>
+                <button id="reset-btn" class="btn secondary">Reset</button>
+            </div>
+
+            <div id="results" class="results-panel hidden">
+                <h2 id="feedback-title">Perfect!</h2>
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-label">Target</span>
+                        <span class="stat-value" id="res-target">10.00s</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Actual</span>
+                        <span class="stat-value" id="res-actual">10.02s</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Diff</span>
+                        <span class="stat-value" id="res-diff">+0.02s</span>
+                    </div>
+                </div>
+                <p id="feedback-desc" class="feedback-desc">You were very close!</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

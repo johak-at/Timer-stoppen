@@ -1,0 +1,20 @@
+{
+    "mcpServers": {
+        "StitchMCP": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "mcp-remote",
+                "https://stitch.googleapis.com/mcp",
+                "--header",
+                "X-Goog-Api-Key: AQ.Ab8RN6JCT4THWWlKPdvMdS5TEZ7arW0q9kP_3COsQ3T4v6CMHw"
+            ]
+        },
+        "supabase": {
+            "serverUrl": "https://mcp.supabase.com/mcp"
+        },
+        "svelte": {
+            "serverUrl": "https://mcp.svelte.dev/mcp"
+        }
+    }
+}
