@@ -20,13 +20,24 @@
         </header>
 
         <main>
-            <div class="settings">
-                <label for="target-time">Target Time:</label>
-                <select id="target-time">
-                    <option value="5">5.00 Seconds</option>
-                    <option value="10" selected>10.00 Seconds</option>
-                    <option value="15">15.00 Seconds</option>
-                </select>
+            <div class="settings-group">
+                <div class="settings">
+                    <label for="target-time">Target Time:</label>
+                    <select id="target-time">
+                        <option value="5">5.00 Seconds</option>
+                        <option value="5.5">5.50 Seconds</option>
+                        <option value="6.67">6.67 Seconds</option>
+                        <option value="10" selected>10.00 Seconds</option>
+                        <option value="15">15.00 Seconds</option>
+                        <option value="custom">Custom...</option>
+                    </select>
+                </div>
+
+                <div id="custom-time-container" class="settings hidden">
+                    <label for="custom-time-input">Custom (s):</label>
+                    <input type="number" id="custom-time-input" min="0.1" max="999.9" step="0.001" value="5.500"
+                        placeholder="e.g. 5.500">
+                </div>
             </div>
 
             <div class="timer-display">

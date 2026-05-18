@@ -67,8 +67,15 @@ header p {
     font-size: 1rem;
 }
 
-.settings {
+.settings-group {
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.settings {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,7 +87,8 @@ header p {
     color: var(--text-muted);
 }
 
-.settings select {
+.settings select,
+.settings input {
     background-color: rgba(15, 23, 42, 0.8);
     color: var(--text-main);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -89,11 +97,20 @@ header p {
     font-family: inherit;
     font-size: 1rem;
     outline: none;
-    cursor: pointer;
     transition: border-color 0.2s;
 }
 
-.settings select:focus {
+.settings select {
+    cursor: pointer;
+}
+
+.settings input {
+    width: 120px;
+    text-align: center;
+}
+
+.settings select:focus,
+.settings input:focus {
     border-color: var(--primary-color);
 }
 
@@ -188,8 +205,8 @@ header p {
     animation: slideUp 0.4s ease-out forwards;
 }
 
-.results-panel.hidden {
-    display: none;
+.hidden {
+    display: none !important;
 }
 
 @keyframes slideUp {

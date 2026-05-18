@@ -1,6 +1,8 @@
 // DOM Elements
 const timeDisplay = document.getElementById('time');
 const targetTimeSelect = document.getElementById('target-time');
+const customTimeContainer = document.getElementById('custom-time-container');
+const customTimeInput = document.getElementById('custom-time-input');
 const startBtn = document.getElementById('start-btn');
 const stopBtn = document.getElementById('stop-btn');
 const resetBtn = document.getElementById('reset-btn');
@@ -54,6 +56,7 @@ function startTimer() {
     startBtn.disabled = true;
     stopBtn.disabled = false;
     targetTimeSelect.disabled = true;
+    customTimeInput.disabled = true;
     resultsPanel.classList.add('hidden');
 
     // Add subtle visual cue that timer is running
@@ -93,6 +96,7 @@ function resetTimer() {
     startBtn.disabled = false;
     stopBtn.disabled = true;
     targetTimeSelect.disabled = false;
+    customTimeInput.disabled = false;
     resultsPanel.classList.add('hidden');
 
     // Revert visual cue
@@ -102,7 +106,16 @@ function resetTimer() {
 
 // Calculate and Display Results
 function calculateResults() {
-    const targetSeconds = parseFloat(targetTimeSelect.value);
+    let targetSeconds = 0;
+    if (targetTimeSelect.value === 'custom') {
+        targetSeconds = parseFloat(customTimeInput.value);
+        if (isNaN(targetSeconds) || targetSeconds <= 0) {
+            targetSeconds = 5.500;
+            customTimeInput.value = '5.500';
+        }
+    } else {
+        targetSeconds = parseFloat(targetTimeSelect.value);
+    }
     const actualSeconds = currentElapsedTime / 1000;
     const difference = actualSeconds - targetSeconds;
     const absDifference = Math.abs(difference);
@@ -152,6 +165,26 @@ function calculateResults() {
 startBtn.addEventListener('click', startTimer);
 stopBtn.addEventListener('click', stopTimer);
 resetBtn.addEventListener('click', resetTimer);
+
+// Toggle custom time input display based on selection
+targetTimeSelect.addEventListener('change', () => {
+    if (targetTimeSelect.value === 'custom') {
+        customTimeContainer.classList.remove('hidden');
+        customTimeInput.focus();
+    } else {
+        customTimeContainer.classList.add('hidden');
+    }
+});
+
+// Format/validate custom time on blur
+customTimeInput.addEventListener('blur', () => {
+    let value = parseFloat(customTimeInput.value);
+    if (isNaN(value) || value <= 0) {
+        customTimeInput.value = '5.500';
+    } else {
+        customTimeInput.value = value.toFixed(3);
+    }
+});
 
 // Initialize display
 updateDisplay(0);
