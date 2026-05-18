@@ -10,7 +10,7 @@
     --danger-hover: #dc2626;
     --secondary-color: #475569;
     --secondary-hover: #334155;
-    
+
     --perfect-color: #10b981;
     --close-color: #3b82f6;
     --okay-color: #eab308;
@@ -31,7 +31,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: 
+    background-image:
         radial-gradient(circle at 15% 50%, rgba(34, 211, 238, 0.08), transparent 25%),
         radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
 }
@@ -153,6 +153,7 @@ header p {
     background-color: var(--primary-color);
     box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
 }
+
 .btn.primary:hover:not(:disabled) {
     background-color: var(--primary-hover);
     transform: translateY(-2px);
@@ -163,6 +164,7 @@ header p {
     background-color: var(--danger-color);
     box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
 }
+
 .btn.danger:hover:not(:disabled) {
     background-color: var(--danger-hover);
     transform: translateY(-2px);
@@ -172,6 +174,7 @@ header p {
 .btn.secondary {
     background-color: var(--secondary-color);
 }
+
 .btn.secondary:hover:not(:disabled) {
     background-color: var(--secondary-hover);
     transform: translateY(-2px);
@@ -194,6 +197,7 @@ header p {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -239,7 +243,22 @@ header p {
 }
 
 /* Colors for different feedback states */
-.feedback-perfect { color: var(--perfect-color); text-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
-.feedback-close { color: var(--close-color); text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
-.feedback-okay { color: var(--okay-color); text-shadow: 0 0 10px rgba(234, 179, 8, 0.4); }
-.feedback-bad { color: var(--bad-color); text-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+.feedback-perfect {
+    color: var(--perfect-color);
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.feedback-close {
+    color: var(--close-color);
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.feedback-okay {
+    color: var(--okay-color);
+    text-shadow: 0 0 10px rgba(234, 179, 8, 0.4);
+}
+
+.feedback-bad {
+    color: var(--bad-color);
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
+}
