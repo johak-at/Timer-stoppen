@@ -19,8 +19,14 @@
             <p>Can you stop it exactly on time?</p>
         </header>
 
+        <div class="mode-toggle">
+            <button id="mode-single" class="mode-btn active" data-mode="single">Single Player</button>
+            <button id="mode-versus" class="mode-btn" data-mode="versus">2-Player VS</button>
+        </div>
+
         <main>
-            <div class="settings-group">
+            <!-- Single Player Settings -->
+            <div id="single-player-settings" class="settings-group">
                 <div class="settings">
                     <label for="target-time">Target Time:</label>
                     <select id="target-time">
@@ -40,6 +46,30 @@
                 </div>
             </div>
 
+            <!-- Versus Settings -->
+            <div id="versus-settings" class="settings-group hidden">
+                <div class="versus-target-box">
+                    <span class="target-label">Target Time:</span>
+                    <span id="versus-target-val" class="target-value">--.---s</span>
+                    <button id="versus-reroll-btn" class="icon-btn" title="Roll New Target">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="player-cards">
+                    <div id="p1-card" class="player-card active">
+                        <div class="player-name">Player 1</div>
+                        <div id="p1-status" class="player-status">Ready</div>
+                    </div>
+                    <div id="p2-card" class="player-card">
+                        <div class="player-name">Player 2</div>
+                        <div id="p2-status" class="player-status">Waiting</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="timer-display">
                 <span id="time">0.000</span><span class="unit">s</span>
             </div>
@@ -50,6 +80,7 @@
                 <button id="reset-btn" class="btn secondary">Reset</button>
             </div>
 
+            <!-- Single Player Results -->
             <div id="results" class="results-panel hidden">
                 <h2 id="feedback-title">Perfect!</h2>
                 <div class="stats">
@@ -67,6 +98,44 @@
                     </div>
                 </div>
                 <p id="feedback-desc" class="feedback-desc">You were very close!</p>
+            </div>
+
+            <!-- Versus Results Panel -->
+            <div id="versus-results" class="results-panel hidden">
+                <h2 id="vs-feedback-title">Player 1 Wins!</h2>
+
+                <div class="vs-stats-container">
+                    <div id="vs-res-p1" class="vs-player-result">
+                        <h3>Player 1</h3>
+                        <div class="vs-stat-box">
+                            <span class="stat-label">Actual</span>
+                            <span class="stat-value" id="vs-p1-actual">0.000s</span>
+                        </div>
+                        <div class="vs-stat-box">
+                            <span class="stat-label">Diff</span>
+                            <span class="stat-value" id="vs-p1-diff">+0.000s</span>
+                        </div>
+                    </div>
+
+                    <div class="vs-target-middle">
+                        <span class="stat-label">Target</span>
+                        <span class="vs-target-display" id="vs-res-target">0.000s</span>
+                    </div>
+
+                    <div id="vs-res-p2" class="vs-player-result">
+                        <h3>Player 2</h3>
+                        <div class="vs-stat-box">
+                            <span class="stat-label">Actual</span>
+                            <span class="stat-value" id="vs-p2-actual">0.000s</span>
+                        </div>
+                        <div class="vs-stat-box">
+                            <span class="stat-label">Diff</span>
+                            <span class="stat-value" id="vs-p2-diff">+0.000s</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p id="vs-feedback-desc" class="feedback-desc">Incredible margin of victory!</p>
             </div>
         </main>
     </div>
